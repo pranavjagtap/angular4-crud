@@ -1,0 +1,16 @@
+<p>user works!</p>
+
+{{ users | json }}
+<app-user-new (createNewUserEvent)="create($event)"></app-user-new>
+
+<!-- 
+	input a variable i.e. user to app-user-list and use it there to print ot html.
+	And any change in parent component to users list will get reflected to user-list i.e. this component.
+	destroyUserEvent is going to check on destroy which is expecting $event.
+	updateUserEvent is going to check on update which is expecting $event.
+-->
+<app-user-list
+	[users]="users"
+	(destroyUserEvent)="destroy($event)"
+	(updateUserEvent)="update($event)"
+	></app-user-list>
